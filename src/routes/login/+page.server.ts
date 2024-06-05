@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({ url, locals: { getSession } }) => {
 
 	// if the user is already logged in return them to the account page
 	if (session) {
-		throw redirect(303, '/account');
+		throw redirect(303, '/dashboard');
 	}
 
 	return { url: url.origin };
@@ -34,7 +34,7 @@ export const actions = {
 		});
 
 		if (!error) {
-			throw redirect(303, '/account');
+			throw redirect(303, '/dashboard');
 		}
 
 		return { success: false };
